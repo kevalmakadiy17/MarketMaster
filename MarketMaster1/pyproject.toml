@@ -1,0 +1,62 @@
+[build-system]
+requires = ["setuptools>=42.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+testpaths = [
+    "src/tests",
+]
+
+[tool.briefcase]
+project_name = "MarketMaster"
+bundle = "com.github.marketmaster"
+version = "1.0.0"
+url = "https://github.com/wheelercj/MarketMaster"
+license = "MIT license"
+author = 'Joseph Alipranti, Hyeong Woo Ko, Keval Makadiya, and Chris Wheeler'
+author_email = "christopher.wheeler.320@my.csun.edu"
+
+[tool.briefcase.app.marketmaster]
+formal_name = "MarketMaster"
+description = "Short description of the app here."
+icon = "src/marketmaster/resources/marketmaster"
+sources = ['src/marketmaster']
+requires = [
+    'BeautifulSoup4==4.12.2',
+    'finance-datareader==0.9.50',
+    'matplotlib==3.6.2',
+    'numpy==1.23.4',
+    'pandas==1.5.0',
+    'pyqtgraph==0.13.1',
+    'pyside6==6.4.0',
+    'scikit-learn==1.1.2',
+    'scipy==1.9.2',
+]
+
+
+[tool.briefcase.app.marketmaster.macOS]
+requires = [
+    'std-nslog~=1.0.0'
+]
+
+[tool.briefcase.app.marketmaster.linux]
+requires = []
+
+[tool.briefcase.app.marketmaster.linux.appimage]
+system_requires = []
+linuxdeploy_plugins = []
+
+[tool.briefcase.app.marketmaster.linux.flatpak]
+flatpak_runtime = 'org.kde.Platform'
+flatpak_runtime_version = '6.3'
+flatpak_sdk = 'org.kde.Sdk'
+
+[tool.briefcase.app.marketmaster.windows]
+requires = []
+
+# Mobile deployments
+[tool.briefcase.app.marketmaster.iOS]
+supported = false
+
+[tool.briefcase.app.marketmaster.android]
+supported = false
